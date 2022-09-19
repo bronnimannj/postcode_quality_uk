@@ -2,6 +2,9 @@ library(tidyverse)
 library(readxl)
 library(data.table)
 
+# library(reticulate)
+# pd <- import("pandas")
+# pickle_data <- pd$read_pickle("dataset.pickle")
 
 
 # 1 Import dictionary ----------------------------------------------------------
@@ -115,7 +118,7 @@ flood_pcd <- dictionary %>%
 # High - 4
 
 flood_dst <- flood_pcd %>%
-  filter(flood_risk != 'None') %>%
+  #filter(flood_risk != 'None') %>%
   mutate(flood_risk = case_when(flood_risk == "None" ~ 0,
                                 flood_risk == "Very Low" ~ 1,
                                 flood_risk == "Low" ~ 2,
@@ -137,7 +140,7 @@ flood_dst <- flood_pcd %>%
   mutate(flood_value_from = "average_district")
 
 flood_sct <- flood_pcd %>%
-  filter(flood_risk != 'None') %>%
+  #filter(flood_risk != 'None') %>%
   mutate(flood_risk = case_when(flood_risk == "None" ~ 0,
                                 flood_risk == "Very Low" ~ 1,
                                 flood_risk == "Low" ~ 2,
