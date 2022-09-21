@@ -1,4 +1,4 @@
-# Postcode Qquality in England
+# Postcode Quality in England
 
 ## Motivations and goals of this project
 
@@ -30,7 +30,7 @@ All data are cleaned in the jupyter notebook "filter_raw_data.ipynb" to contain 
 
 I used the following packages:
 
-- pandas
+- pandas version X.XX.XX 
 - numpy
 - os
 - 
@@ -40,6 +40,12 @@ I used the following packages:
 I used the following packages:
 
 - reticulate
+- shiny
+- shinyMobile
+- shinyWidgets
+- tidyverse
+- leaflet
+- leaflet.extras
 
 
 ## Files in the project
@@ -53,6 +59,43 @@ I filtered the columns to only be the ones necessary for the analysis. I only to
 To save more space, I downcasted the numerical columns. All files are saved in file "data/filtered".
 
 I was able to cut down data size from 1.14GB to 88MB.
+
+
+### postcode_quality_check.ipynb
+
+This notebook is the Python version of the main file for this analysis. 
+It reads the different filtered tables, joins them, and then return some results depending on a postcode input.
+
+The results given are:
+- The name of the postcode, LSOA, District and Sector
+- The risk of flooding of the postcode
+- The elevation of the postcode
+- The number of cats in the districts (with histogram and quantile on the country's distribution)
+- The average number of dogs per household (with histogram and quantile on the country's distribution)
+- A map where the postcode can be found
+- The different IMD ranks
+
+### postcode_quality_check.R
+
+This notebook is the R version of the main file for this analysis. 
+It reads the different filtered tables, joins them, and then return some results depending on a postcode input in a form of a Shiny App.
+
+The results given are:
+- The name of the postcode, LSOA, District and Sector
+- The risk of flooding of the postcode
+- The elevation of the postcode
+- The number of cats in the districts (with histogram and quantile on the country's distribution)
+- The average number of dogs per household (with histogram and quantile on the country's distribution)
+- A map where the postcode can be found
+- The different IMD ranks
+
+### Misc
+
+The other files are admin files:
+- .gitignore: filters the files that will be pushed to GitHub
+- LICENSE: the licence for this repo
+- R_version_project.Rproj: The R project file to open Rstudio
+- postcode_quality_uk.code-workspace: the VScode workspace with the nice VScode parameters
 
 
 ## Links
