@@ -2,13 +2,16 @@ library(shiny)
 library(shinyMobile)
 # library(apexcharter)
 library(shinyWidgets)
-library(data.table)
+#library(data.table)
 library(tidyverse)
 
 # for maps
 library(leaflet)
 library(leaflet.extras)
 
+# library(reticulate)
+# pd <- import("pandas")
+# pickle_data <- pd$read_pickle("dataset.pickle")
 
 data = fread('cleaned_data.csv')
 data = data.frame(data)
