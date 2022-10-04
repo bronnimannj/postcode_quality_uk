@@ -30,10 +30,10 @@ All data are cleaned in the jupyter notebook "filter_raw_data.ipynb" to contain 
 
 I used the following packages:
 
-- pandas version X.XX.XX 
-- numpy
+- pandas version 1.5.0
+- numpy version 1.23.3
 - os
-- 
+- matplotlib version 3.6.0 (we import only matplotlib.pyplot)
 
 ### In R
 
@@ -89,13 +89,20 @@ The results given are:
 - A map where the postcode can be found
 - The different IMD ranks
 
-### Misc
+### Misc files
 
 The other files are admin files:
 - .gitignore: filters the files that will be pushed to GitHub
 - LICENSE: the licence for this repo
-- R_version_project.Rproj: The R project file to open Rstudio
-- postcode_quality_uk.code-workspace: the VScode workspace with the nice VScode parameters
+- moving_postcode_filter.Rproj: The R project file to open Rstudio
+
+### data folder
+This folder contains 2 subfolders (only 1 in GitHub):
+- Raw, containing the raw data sourced online. These files are too big to be pushed to GitHub.
+- filtered, containing the cleaned and filtered data. Outputs of file "filter_raw_data.ipynb"
+
+### venv folder
+Folder containing the virtual environment for Python
 
 
 ## Links
