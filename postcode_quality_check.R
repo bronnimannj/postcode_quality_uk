@@ -1,21 +1,21 @@
+# 0 Import packages -------------------------------------------------------
 library(shiny)
 library(shinyMobile)
 # library(apexcharter)
 library(shinyWidgets)
-#library(data.table)
 library(tidyverse)
 
 # for maps
 library(leaflet)
 library(leaflet.extras)
 
-# library(reticulate)
-# pd <- import("pandas")
-# pickle_data <- pd$read_pickle("dataset.pickle")
+# 1 LOAD FILES ------------------------------------------------------------
 
-data = fread('cleaned_data.csv')
-data = data.frame(data)
+# Read all files
+data <- read_csv('data/main_data.zip', show_col_types = FALSE )
 
+
+### OUTPUT
 shinyApp(
   ui = f7Page(
     title = "Postcode Filter",
@@ -96,7 +96,7 @@ shinyApp(
               title = "Input postcode",
               f7Text(inputId = 'postcode',
                      label = h3('Postcode'),
-                     value = 'PE2 6SX')
+                     value = 'LS28 7AA')
             )
           ),
           
@@ -342,7 +342,7 @@ shinyApp(
       my_district = data[data['pcds'] == input$postcode,][["district"]]
       data_output = data[data['district'] == my_district,
                          c('district','lat','long',
-                           'cats_by_district','dogs_by_household')]
+                           'estimated_cat_population','dog_per_household_lower95')]
       return(data_output)
     })
     
@@ -406,11 +406,11 @@ shinyApp(
     output$flood_risk <- renderUI({
       risk = paste0( 
         "The risk on Flooding is set to '", 
-        get_data()[['flood_risk']] ,
+        get_data()[['flood_risk_int']] ,
         "'")
-      risk_for_insurance = paste0( 
+      risk_for_insurance_int = paste0( 
         "The risk on insurance is set to '", 
-        get_data()[['risk_for_insurance']],
+        get_data()[['risk_for_insurance_int']],
         "'")
       
       if(get_data()[['flood_value_from']] == "raw_postcode"){
@@ -422,7 +422,7 @@ shinyApp(
       }
       
       HTML(paste(
-        risk, risk_for_insurance, flood_value_from, sep = '<br/><br/>'))
+        risk, risk_for_insurance_int, flood_value_from, sep = '<br/><br/>'))
     })
     
     
@@ -455,7 +455,7 @@ shinyApp(
     output$cats_details <- renderUI({
       cats = paste0( 
         "We have ", 
-        get_data()[['cats_by_district']] ,
+        get_data()[['estimated_cat_population']] ,
         " cats in the district.")
       
       if(get_data()[['pets_value_from']] == "raw_district"){
@@ -464,10 +464,10 @@ shinyApp(
         cats_value_from = "(value calculated by taking the average in the sector)"
       }
       
-      cats_quantile <- ecdf(data[['cats_by_district']])
+      cats_quantile <- ecdf(data[['estimated_cat_population']])
       
       cat_q <- paste0("This value is the ",
-                      round(100*cats_quantile(get_data()[['cats_by_district']]),2),
+                      round(100*cats_quantile(get_data()[['estimated_cat_population']]),2),
                       "% quantile")
       
       HTML(paste(
@@ -480,12 +480,12 @@ shinyApp(
       
       data %>%
         ggplot()+
-        geom_histogram(aes(x = cats_by_district),
+        geom_histogram(aes(x = estimated_cat_population),
                        binwidth = 500,
                        fill = '#2196f3',
                        color = '#1c89df'
         ) +
-        geom_vline(xintercept = get_data()[['cats_by_district']],
+        geom_vline(xintercept = get_data()[['estimated_cat_population']],
                    colour = 'red',
                    size = 1        )+
         theme_light()+
@@ -501,7 +501,7 @@ shinyApp(
     output$dogs_details <- renderUI({
       dogs = paste0( 
         "We have ", 
-        round(get_data()[['dogs_by_household']],4) ,
+        round(get_data()[['dog_per_household_lower95']],4) ,
         " dogs by house in the district.")
       
       if(get_data()[['pets_value_from']] == "raw_district"){
@@ -510,10 +510,10 @@ shinyApp(
         dogs_value_from = "(value calculated by taking the average in the sector)"
       }
       
-      dogs_quantile <- ecdf(data[['dogs_by_household']])
+      dogs_quantile <- ecdf(data[['dog_per_household_lower95']])
       
       dog_q <- paste0("This value is the ",
-                      round(100*dogs_quantile(get_data()[['dogs_by_household']]),2),
+                      round(100*dogs_quantile(get_data()[['dog_per_household_lower95']]),2),
                       "% quantile")
       
       HTML(paste(
@@ -526,12 +526,12 @@ shinyApp(
       
       data %>%
         ggplot()+
-        geom_histogram(aes(x = dogs_by_household),
+        geom_histogram(aes(x = dog_per_household_lower95),
                        binwidth = 0.1,
                        fill = '#5bd724',
                        color = '#4bb41d'
         ) +
-        geom_vline(xintercept = get_data()[['dogs_by_household']],
+        geom_vline(xintercept = get_data()[['dog_per_household_lower95']],
                    colour = 'red',
                    size = 1        )+
         theme_light()+
