@@ -39,7 +39,6 @@ I used the following packages:
 
 I used the following packages:
 
-- reticulate
 - shiny
 - shinyMobile
 - shinyWidgets
@@ -113,6 +112,11 @@ Folder containing the virtual environment for Python
 
 ## Links
 
+### Medium article linked to this project
+
+https://medium.com/@bronnimannj/use-data-science-to-find-the-perfect-neighborhood-922631f69a04
+
+
 ### Links to data
 
 - https://www.getthedata.com/flood-map/PE
@@ -120,6 +124,7 @@ Folder containing the virtual environment for Python
 - https://data.world/
 
 - https://www.gov.uk/government/statistics/english-indices-of-deprivation-2019
+
 
 
 ### Interesting links to keep when trying to deploy the app
@@ -136,13 +141,3 @@ Folder containing the virtual environment for Python
 ### Interesting links for possible improvements:
 
 - https://joeblogs.technology/2020/03/retrieving-data-from-rightmoves-api/
-
-
-
-
-<!-- 
-## In the blog post:
-
-- A clear and engaging title and image.
-- Your questions of interest.
-- Your findings for those questions with a supporting statistic(s), table, or visual. -->
