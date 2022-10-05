@@ -60,11 +60,17 @@ To save more space, I downcasted the numerical columns. All files are saved in f
 
 I was able to cut down data size from 1.14GB to 88MB.
 
+### create_main_data.ipynb
+
+This notebook creates the main data used for this analysis.
+
+It reads the different filtered tables, joins them, and saves the final table into a zipped csv file.
+
+
 
 ### postcode_quality_check.ipynb
 
-This notebook is the Python version of the main file for this analysis. 
-It reads the different filtered tables, joins them, and then return some results depending on a postcode input.
+This file is the Python version of this analysis. It returns some results depending on a postcode input.
 
 The results given are:
 - The name of the postcode, LSOA, District and Sector
@@ -77,8 +83,7 @@ The results given are:
 
 ### postcode_quality_check.R
 
-This notebook is the R version of the main file for this analysis. 
-It reads the different filtered tables, joins them, and then return some results depending on a postcode input in a form of a Shiny App.
+This file is the R version of this analysis. It returns some results depending on a postcode input.
 
 The results given are:
 - The name of the postcode, LSOA, District and Sector
@@ -97,9 +102,10 @@ The other files are admin files:
 - moving_postcode_filter.Rproj: The R project file to open Rstudio
 
 ### data folder
-This folder contains 2 subfolders (only 1 in GitHub):
-- Raw, containing the raw data sourced online. These files are too big to be pushed to GitHub.
-- filtered, containing the cleaned and filtered data. Outputs of file "filter_raw_data.ipynb"
+This folder contains 2 subfolders (only 1 in GitHub) and one file:
+- Raw subfolder: containing the raw data sourced online. These files are too big to be pushed to GitHub.
+- filtered subfolder: containing the cleaned and filtered data. Outputs of file "filter_raw_data.ipynb"
+- main_data.zip file: main file used for analysis.
 
 ### venv folder
 Folder containing the virtual environment for Python
