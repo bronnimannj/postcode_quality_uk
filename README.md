@@ -1,6 +1,20 @@
 # Postcode Quality in England
 
-## Motivations and goals of this project
+## Table of contents
+
+- [Motivations](#motivations)
+- [Data used](#data)
+- [Visuals](#visuals)
+- [Packages used](#packages_used)
+- [Instructions](#instructions)
+- [Files](#files)
+- [Possible improvements](#improvements)
+- [Credits](#credits)
+- [License](#license)
+- [Links](#links)
+- [Status] (#status)
+
+## Motivations and goals of this project <a name="motivations"></a>
 
 The goal of this project is to create an analysis of the best postcodes to move into depending on freely available UK data.
 
@@ -12,7 +26,7 @@ This project contains 2 code versions:
 - A version coded in Python, using a jupyter notebook to show the results.
 
 
-## Data used
+## Data used <a name="data"></a>
 
 For this analysis, I used freely available UK data (Links in section below). In particular, I used:
 
@@ -24,7 +38,7 @@ All data are cleaned in the jupyter notebook "filter_raw_data.ipynb" to contain 
 
 
 
-## Libraries used
+## Libraries used <a name="packages_used"></a>
 
 ### In Python
 
@@ -46,8 +60,16 @@ I used the following packages:
 - leaflet
 - leaflet.extras
 
+## Instructions <a name="instructions"></a>
 
-## Files in the project
+You can clone this repository by opening Git Bash and the command line
+
+```text
+git clone https://github.com/jmballard/postcode_quality_uk.git
+```
+
+
+## Files <a name="files"></a>
 
 ### filter_raw_data.ipynb
 
@@ -110,7 +132,36 @@ This folder contains 2 subfolders (only 1 in GitHub) and one file:
 Folder containing the virtual environment for Python
 
 
-## Links
+## Possible improvements on this project: <a name="improvements"></a>
+
+We could try to review automatically the houses on Rightmove using https://joeblogs.technology/2020/03/retrieving-data-from-rightmoves-api/ instead of reviewing manually a postcode.
+
+## License <a name="license"></a>
+
+MIT License
+
+Copyright (c) [2022] [Julie Ballard]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+## Links <a name="links"></a>
 
 ### Medium article linked to this project
 
@@ -138,6 +189,6 @@ https://medium.com/@bronnimannj/use-data-science-to-find-the-perfect-neighborhoo
 - https://www.shinyapps.io/admin/#/signup
 
 
-### Interesting links for possible improvements:
+## Project status  <a name="status"></a>
 
-- https://joeblogs.technology/2020/03/retrieving-data-from-rightmoves-api/
+This project is currently on stand by.
